@@ -1,4 +1,6 @@
 <?php
+// On démarre une session
+session_start();
 
 //Connexion à la base
 require_once('connection.php');
@@ -30,6 +32,23 @@ require_once('Close.php');
 	<main class="container">
 		<div class="row">
 			<section class="col-12">
+            <?php
+                    if(!empty($_SESSION['erreur'])){
+                        echo '<div class="alert alert-danger" role="alert">
+                                '. $_SESSION['erreur'].'
+                            </div>';
+                        $_SESSION['erreur'] = "";
+                    }
+                ?>
+                <?php
+                    if(!empty($_SESSION['message'])){
+                        echo '<div class="alert alert-success" role="alert">
+                                '. $_SESSION['message'].'
+                            </div>';
+                        $_SESSION['message'] = "";
+                    }
+                ?>
+				<h1>Liste des clients</h1>
 				<table class="table">
 					<thead>
 						<th>NCLI</th>
@@ -38,6 +57,7 @@ require_once('Close.php');
 						<th>LOCALITE</th>
 						<th>CAT</th>
 						<th>COMPTE</th>
+						<th>Actions</th>
 					</thead>
 					<tbody>
 						<?php
@@ -50,6 +70,8 @@ require_once('Close.php');
 								<td><?= $client['LOCALITE'] ?></td>
 								<td><?= $client['CAT'] ?></td>
 								<td><?= $client['COMPTE'] ?></td>
+								<td><a href="edit.php?NCLI=<?= $client['NCLI'] ?>">Modifier</a> <a href="edit.php?NCLI=<?= $client['NCLI'] ?>">Modifier2</a></td>
+								
 							</tr>
 						<?php
 						}
