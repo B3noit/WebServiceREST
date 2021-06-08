@@ -11,7 +11,7 @@ if($_POST){
     && isset($_POST['COMPTE']) && !empty($_POST['COMPTE'])){
 
         // On inclut la connexion à la base
-        require_once('connection.php');
+        require_once('DbConnect.php');
 
         // On nettoie les données envoyées
         $NCLI = strip_tags($_POST['NCLI']);
@@ -46,7 +46,7 @@ if($_POST){
 
 // Est-ce que l'id existe et n'est pas vide dans l'URL
 if(isset($_GET['NCLI']) && !empty($_GET['NCLI'])){
-    require_once('connection.php');
+    require_once('DbConnect.php');
 
     // On nettoie le NCLI envoyé
     $NCLI = strip_tags($_GET['NCLI']);
@@ -74,8 +74,6 @@ if(isset($_GET['NCLI']) && !empty($_GET['NCLI'])){
     //On inscrits les nouveaux logs dans le fichier des logs.
     file_put_contents('logs.txt', $file);
 
-    // On récupère le client
-    $client = $query->fetch();
     // On récupère le client
     $client = $query->fetch();
 

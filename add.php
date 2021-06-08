@@ -11,7 +11,7 @@ if($_POST){
     && isset($_POST['COMPTE']) && !empty($_POST['COMPTE'])){
 
         // On inclut la connexion à la base
-        require_once('connection.php');
+        require_once('DbConnect.php');
 
         // On nettoie les données envoyées
         $NCLI = strip_tags($_POST['NCLI']);

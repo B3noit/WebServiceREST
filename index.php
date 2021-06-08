@@ -3,7 +3,7 @@
 session_start();
 
 //Connexion à la base
-require_once('connection.php');
+require_once('DbConnect.php');
 
 $sql ='SELECT * FROM `client`';
 

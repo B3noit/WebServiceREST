@@ -4,7 +4,7 @@ session_start();
 
 // Est-ce que le NCLI existe et n'est pas vide dans l'URL
 if(isset($_GET['NCLI']) && !empty($_GET['NCLI'])){
-    require_once('connection.php');
+    require_once('DbConnect.php');
 
     // On nettoie le NCLI envoyé
     $NCLI = strip_tags($_GET['NCLI']);
@@ -20,7 +20,9 @@ if(isset($_GET['NCLI']) && !empty($_GET['NCLI'])){
     // On exécute la requête
     $query->execute();
 
-
+    // On récupère le client
+    $client = $query->fetch();
+    
     // On vérifie si le client existe
     if(!$client){
         $_SESSION['erreur'] = "Cet NCLI n'existe pas";

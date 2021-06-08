@@ -4,7 +4,7 @@ session_start();
 
 // Est-ce que le NCLI existe et n'est pas vide dans l'URL
 if(isset($_GET['NCLI']) && !empty($_GET['NCLI'])){
-    require_once('connection.php');
+    require_once('DbConnect.php');
 
     // On nettoie l'NCLI envoyé
     $NCLI = strip_tags($_GET['NCLI']);
