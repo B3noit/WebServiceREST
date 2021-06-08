@@ -62,6 +62,20 @@ if(isset($_GET['NCLI']) && !empty($_GET['NCLI'])){
     // On exécute la requête
     $query->execute();
 
+    //On récupère le fichier des logs et son contenu
+    $file = file_get_contents('logs.txt');
+
+    //On récupère la date
+    $date = date('H:i:s');
+            
+    //On ajoute l'action aux anciens logs
+    $file .= "\n[" . $date . "] : modification du client : " . $NCLI;
+            
+    //On inscrits les nouveaux logs dans le fichier des logs.
+    file_put_contents('logs.txt', $file);
+
+    // On récupère le client
+    $client = $query->fetch();
     // On récupère le client
     $client = $query->fetch();
 

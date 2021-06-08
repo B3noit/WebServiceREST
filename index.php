@@ -70,8 +70,12 @@ require_once('Close.php');
 								<td><?= $client['LOCALITE'] ?></td>
 								<td><?= $client['CAT'] ?></td>
 								<td><?= $client['COMPTE'] ?></td>
-								<td><a href="edit.php?NCLI=<?= $client['NCLI'] ?>">Modifier</a> <a href="edit.php?NCLI=<?= $client['NCLI'] ?>">Modifier2</a></td>
-								
+								<td>
+									<a href="details.php?NCLI=<?= $client['NCLI'] ?>">Détails</a> 
+									<a href="edit.php?NCLI=<?= $client['NCLI'] ?>">Modifier</a>
+									<a href="delete.php?NCLI=<?= $client['NCLI'] ?>">Supprimer</a>
+								</td>
+
 							</tr>
 						<?php
 						}
